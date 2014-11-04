@@ -1,51 +1,35 @@
 Markdown to book
 =================
-
-Requires [RedCarpet](https://github.com/vmg/redcarpet)
-
-    `sudo gem install redcarpet`
-
-Requires Json
-
-    `sudo gem install json`
-
-Requires Node js
-
-Requires :[grunt-cli](http://gruntjs.com/getting-started)
-## Starting off
- - include all your markdown files into a folder with the right names {read [File structure](#filestructure)}.
- - run `ruby parse.ru [folder to read] [file to output]` from ternminal*.
- - files will be saved in inside your outpot file.
-
- eg:
-
- `ruby parse.ru mdown outputs/output.html`
+A command line tool that parses a folder of markdown files into a digital book
 
 ## Usage
 
-### Parsing
+### Simple usage
 1. Clone this repository and `cd` into it
 ```
 git clone http://github.com/kvendrik/mdown-to-book.git && cd mdown-to-book
 ```
-2. Make sure you have a `book-settings.json` file in the directory with your markdown files. Also make sure the current file order in that directory represents the structure for the book.
-3. Run `ruby parse.ru <path to your markdown files>`
+2. Install the dependencies: `sudo gem install redcarpet json`
+3. Make sure the current [file structure](#file-structure) of your markdown files represents the structure for the book.
+4. *(Optional) Create a [`book-settings.json`](#book-settingsjson) file in the directory with your markdown files.*
+5. Run `ruby parse.rb <path to your markdown files>`
+6. You can find the book in `<path to your markdown files>/book-output/book/`
 
-### Styling
+### Customizing the theme
 1. `cd` into the output directory `cd <path to your markdown files>/book-output/`
-2. Run `npm install` to install all the needed dependencies to customize the template
+2. Run `npm install` to install all the needed dependencies to customize the theme
 3. Run `grunt serve` (make sure you have the [grunt-cli](http://gruntjs.com/getting-started) installed)
-4. A new browser tab will open. You can now start modifying the template while Grunt takes care of the rest. (pre-processing SASS, merging JS files, etc.)
+4. A new browser tab will open. You can now start modifying the theme while Grunt takes care of the rest. (pre-processing SASS, merging JS files, etc.)
 
 ### File structure
-Each file will be parsed to a new page in your book and will be considered a chapter. The filename will be used as the name for that chapter. To create the desired order we recommand you prepend your filenames with numbers e.g. `1. Chapter 1`. The first file in the folder will be used as cover page. We automatically generate a table of contents based on the chapters.
+Each file will be parsed to a new page in your book and will be considered a chapter. The filename will be used as the name for that chapter. To create the desired order you prepend your filenames with numbers e.g. `1. Chapter 1`. The first file in the folder will be used as cover page. We automatically generate a table of contents based on the chapters.
 
 ### book-settings.json
-The `book-settings.json` file accepts the following options:
+The `book-settings.json` file accepts the options below. In case the `book-settings.json` file could not be found or one of the options is not defined the script uses default values to fill in the blanks.
 
-|Option|Type|Description|Required|
-|:---|:---|:---|:---|
-|title|String|The title for your book|No|
-|contents-table|String|Text to use as title for the table of contents|No|
-|footer|String|The footer text to appear on the bottom of every page|No|
-|buttons|Object|Accepts a `next` and a `previous` option that each take a string to use as text on the navigation buttons|No|
+|Option|Type|Description|
+|:---|:---|:---|
+|title|String|The title for your book|
+|contents-table|String|Text to use as title for the table of contents|
+|footer|String|The footer text to appear on the bottom of every page|
+|buttons|Object|Accepts a `next` and a `previous` option that each take a string to use as text on the navigation buttons|
