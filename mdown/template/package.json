@@ -1,0 +1,22 @@
+{
+  "name": "mdown-to-book",
+  "version": "1.0.0",
+  "description": "Simple tool that parses markdown to a simple digital book",
+  "main": "GruntFile.js",
+  "dependencies": {},
+  "devDependencies": {
+    "grunt": "~0.4.4",
+    "grunt-contrib-concat": "~0.4.0",
+    "grunt-contrib-connect": "~0.7.1",
+    "grunt-contrib-sass": "~0.7.3",
+    "grunt-contrib-uglify": "~0.4.0",
+    "grunt-contrib-watch": "~0.6.1",
+    "grunt-open": "~0.2.3",
+    "load-grunt-tasks": "~0.4.0"
+  },
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "author": "Koen Vendrik",
+  "license": "BSD 2-Clause"
+}

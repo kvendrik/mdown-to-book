@@ -5,6 +5,10 @@ Requires [RedCarpet](https://github.com/vmg/redcarpet)
 
     `sudo gem install redcarpet`
 
+Requires Json
+
+    `sudo gem install json`
+
 Requires Node js
 
 Requires :[grunt-cli](http://gruntjs.com/getting-started)
