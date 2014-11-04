@@ -32,9 +32,11 @@ Dir.glob(readFolder+'/*.md') do |rb_file|
     menu.push(rb_file);
     file = File.open(rb_file, "rb")
     contents = file.read
-    output = output + '<div id="page-'+i.to_s+'">' + markdown.render(contents) + '</div>'
+    output = output + '<div class="page" id="page-'+i.to_s+'">' + markdown.render(contents) + '</div>'
     i = i + 1;
 end
+
+menu.each { |x| puts x }
 
 #output content to given file, and puts some text to the terminal
 outfile = File.new putFile,"w"
