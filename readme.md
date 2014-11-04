@@ -23,7 +23,7 @@ A command line tool that parses a folder of markdown files into a digital book
 4. A new browser tab will open. You can now start modifying the theme while Grunt takes care of the rest. (pre-processing SASS, merging JS files, etc.)
 
 ### File order
-Each file will be parsed to a new page in your book and will be considered a chapter. The filename will be used as the name for that chapter. To create the desired order you prepend your filenames with numbers e.g. `1.Chapter 1.md`. The first file in the folder will be used as cover page. We automatically generate a table of contents based on the chapters.
+Each file will be parsed to a new page in your book and will be considered a chapter. The filename will be used as the name for that chapter. To create the desired order you prepend your filenames with numbers e.g. `1_Chapter 1.md`. The first file in the folder will be used as cover page. We automatically generate a table of contents based on the chapters.
 
 ### book-settings.json
 The `book-settings.json` file accepts the options below. In case the `book-settings.json` file could not be found or one of the options is not defined the script uses default values to fill in the blanks.
