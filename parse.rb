@@ -5,7 +5,7 @@
 #  @date    November 2014
 #  @url     http://github.com/kvendrik/mdown-to-book/
 #
-## make shure you installed the red carpet gem && json
+## make sure you installed the red carpet gem && json
 
 
 
@@ -64,5 +64,3 @@ outfile = File.new readFolder+'/template/book/index.html',"w"
 outfile.puts(temp);
 outfile.close;
 puts 'File written to ' + readFolder + '/book';
-
-
