@@ -1,27 +1,20 @@
 class MdownToBook
 
     def initialize(md_dir_path)
-        @output_html = {
-            :base => '',
-            :cover => '',
-            :index => ''
-        }
-
-        @curr_file_idx = 0
         @md_dir_path = md_dir_path
-        @md_parser = Redcarpet::Markdown.new(Redcarpet::Render::HTML, autolink: true, tables: true)
 
         #create output directory from template
         createOutputDir()
 
-        #get settings from json
-        @settings = getSettings()
+        #get settings (merge defaults and user settings)
+        settings = getSettings()
 
         #get html contents
-        html_content = getHtmlContents()
+        html_parts = getHtmlParts()
+        parsed_html = parseTagsInHtmlParts(html_parts, settings)
 
         #write file with contents
-        writeOutputToFile(html_content)
+        writeOutputToFile(parsed_html)
     end
 
 private
@@ -82,8 +75,35 @@ private
         puts 'File written to ' + @md_dir_path + '/book-output/book';
     end
 
-    def getHtmlContents()
-        #get md files
+    def parseTagsInHtmlParts(html_parts, settings)
+        #open and store current index.html contents
+        file_string = File.open(@md_dir_path+'/book-output/book/index.html', "rb")
+        file_contents = file_string.read
+
+        #replace tags with config options in file
+        file_contents['{{TITLE}}'] = settings['title']
+        file_contents['{{FOOTER}}'] = settings['footer']
+        file_contents['{{BUTTONPREV}}'] = settings['buttons']['previous']
+        file_contents['{{BUTOTNNEXT}}'] = settings['buttons']['next']
+
+        cover = '<section class="page cover">'+html_parts[:cover]+'</section>'
+        page_index = '<section class="page index"><h2>'+settings['contents-table']+'</h2><table>'+html_parts[:index]+'</table></section>'
+        file_contents['{{PAGES}}'] = cover+page_index+html_parts[:base]
+
+        return file_contents
+    end
+
+    def getHtmlParts()
+        html_parts = {
+            :base => '',
+            :cover => '',
+            :index => ''
+        }
+
+        curr_file_idx = 0
+        md_parser = Redcarpet::Markdown.new(Redcarpet::Render::HTML, autolink: true, tables: true)
+
+        #get and loop md files, parse and store their HTML contents
         Dir.glob(@md_dir_path+'/*.md') do |curr_file_path|
 
             # log current file
@@ -93,22 +113,18 @@ private
             file = File.open(curr_file_path, "rb")
 
             #if first file
-            if @curr_file_idx == 0
+            if curr_file_idx == 0
                 #parse md and store as cover
-                @output_html[:cover] = @md_parser.render(file.read)
+                html_parts[:cover] = md_parser.render(file.read)
             else
                 #parse markdown
-                contents = @md_parser.render(file.read)
+                contents = md_parser.render(file.read)
 
                 #replace images with lightbox
-                contents = contents.gsub(/\<img\ ?(\w{0,5})\=\"([^\"]+)\"\ ?(\w{0,5})\=\"([^\"]+)\"\ ?(\w{0,5})\=\"([^\"]+)\"\ ?\/?\>/, "
-                                                                            <div class='enlarge'>
-                                                                                    <img src='\\2' alt='\\4'>
-                                                                            </div>
-                                                                            <cite>\\6</cite>")
+                contents = contents.gsub(/\<img\ ?(\w{0,5})\=\"([^\"]+)\"\ ?(\w{0,5})\=\"([^\"]+)\"\ ?(\w{0,5})\=\"([^\"]+)\"\ ?\/?\>/, "<div class='enlarge'><img src='\\2' alt='\\4'></div><cite>\\6</cite>")
 
                 #append page to output
-                @output_html[:base] += '<div class="page" id="page-'+@curr_file_idx.to_s+'">' + contents + '</div>'
+                html_parts[:base] += '<div class="page" id="page-'+curr_file_idx.to_s+'">'+ contents +'</div>'
 
                 #remove path to files from str
                 curr_file_path[@md_dir_path] = ''
@@ -120,30 +136,14 @@ private
                 result = curr_file_path.gsub(/\A[\d_\W]+|[\d_\W]+\Z/, '')
 
                 #store page index html
-                @output_html[:index] += '<tr><td><a href="?page='+@curr_file_idx.to_s+'">'+result+'</a></td><td><a href="?page='+@curr_file_idx.to_s+'">'+@curr_file_idx.to_s+'</a></td></tr>'
+                html_parts[:index] += '<tr><td><a href="?page='+curr_file_idx.to_s+'">'+result+'</a></td><td><a href="?page='+curr_file_idx.to_s+'">'+curr_file_idx.to_s+'</a></td></tr>'
             end
 
             #update curr file idx
-            @curr_file_idx += 1
+            curr_file_idx += 1
         end
 
-        #open and store index.html contents
-        file = File.open(@md_dir_path+'/book-output/book/index.html', "rb")
-        file_contents = file.read
-
-        settings = @settings
-
-        #replace tags with config options in file
-        file_contents['{{TITLE}}']   = settings['title']
-        file_contents['{{FOOTER}}']  = settings['footer']
-        file_contents['{{BUTTONPREV}}']  = settings['buttons']['previous']
-        file_contents['{{BUTOTNNEXT}}']  = settings['buttons']['next']
-
-        cover = '<section class="page cover">' + @output_html[:cover] + '</section>'
-        page_index = '<section class="page index"><h2>'+settings['contents-table']+'</h2><table>' + @output_html[:index] + '</table></section>'
-        file_contents['{{PAGES}}'] = cover+page_index+@output_html[:base]
-
-        return file_contents
+        return html_parts
     end
 
 end

@@ -20,14 +20,7 @@ read_folder  = ARGV[0]
 
 options = {}
 OptionParser.new do |opts|
-		opts.banner = "Usage: parse.rb [options]"
-
-		opts.on("-v", "--verbose", "Run verbosely") do |v|
-			puts options[:verbose] = v
-		end
+	opts.banner = "Usage: parse.rb [options] [path to markdown files]"
 end.parse!
-
-
-
 
 MdownToBook.new(ARGV[0])
