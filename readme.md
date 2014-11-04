@@ -11,12 +11,12 @@ Requires [RedCarpet](https://github.com/vmg/redcarpet)
 ## Usage
 
 ### Parsing
-1. Clone this repository and cd into it
+1. Clone this repository and `cd` into it
 ```
 git clone http://github.com/kvendrik/mdown-to-book.git && cd mdown-to-book
 ```
 2. Make sure you have a `book-settings.json` file in the directory with your markdown files. Also make sure the current file order in that directory represents the structure for the book.
-3. Run `ruby parse.ru --path=<path to your markdown files>`
+3. Run `ruby parse.ru <path to your markdown files>`
 
 ### Styling
 1. `cd` into the output directory `cd <path to your markdown files>/book-output/`
