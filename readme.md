@@ -33,5 +33,6 @@ The `book-settings.json` file accepts the following options:
 |Option|Type|Description|Required|
 |:---|:---|:---|:---|
 |title|String|The title for your book|No|
+|contents-table|String|Text to use as title for the table of contents|No|
 |footer|String|The footer text to appear on the bottom of every page|No|
 |buttons|Object|Accepts a `next` and a `previous` option that each take a string to use as text on the navigation buttons|No|
