@@ -1,7 +1,7 @@
 {
     "title": "heej :)",
     "contents-table": "..Inhoud",
-//    "footer": "A book by <a href='#'>Matti</a>",
+    "footer": "A book by <a href='#'>Matti</a>",
     "buttons": {
         "next": "volgende",
         "previous": "vorige :D"

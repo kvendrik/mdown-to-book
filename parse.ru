@@ -52,13 +52,19 @@ Dir.glob(readFolder+'/*.md') do |rb_file|
     if i == 0
         cover = markdown.render(file.read)
     else
-        contents = file.read
-        output = output + '<div class="page" id="page-'+i.to_s+'">' + markdown.render(contents) + '</div>'
+        contents = markdown.render(file.read);
+        contents = contents.gsub(/\<img\ ?(\w{0,5})\=\"([^\"]+)\"\ ?(\w{0,5})\=\"([^\"]+)\"\ ?(\w{0,5})\=\"([^\"]+)\"\ ?\/?\>/, "
+
+<div class='enlarge'>
+    <img src='\\2' alt='\\4'>
+</div>
+<cite>\\6</cite>")
+        output = output + '<div class="page" id="page-'+i.to_s+'">' + contents + '</div>'
 
         #compose the page index
         rb_file[readFolder] = '';
         rb_file['.md'] = '';
-        result = rb_file.gsub(/\A[\d_\W]+|[\d_\W]+\Z/, '')
+        result = rb_file.gsub(/\A[\d_\W]+|[\d_\W]+\Z/, '\1')
         pageIndex += '<tr><td><a href="?page='+i.to_s+'">'+result+'</a></td><td><a href="?page='+i.to_s+'">'+i.to_s+'</a></td></tr>'
     end
     i = i + 1
@@ -67,44 +73,45 @@ end
 file = File.open(readFolder+'/book-output/book/index.html', "rb")
 temp = file.read
 
-cover       = '<section class="page cover">' + cover + '</section>'
-pageIndex   = '<section class="page index"><h2>'+settings['contents-table']+'</h2><table>' + pageIndex + '</table></section>';
-
 if !defaults
     d = File.open('default-settings.json', "rb");
     defaults = JSON.parse(d.read);
     if settings['title'].nil?
         settings['title'] = defaults['title'];
-    else
-
     end
      if settings['footer'].nil?
         settings['footer'] = defaults['footer'];
-     else
-
     end
      if settings['buttons']['previous'].nil?
         settings['buttons']['previous'] = defaults['buttons']['previous'];
-     else
-
     end
-     if settings['buttons']['next'].nil?
+    if settings['buttons']['next'].nil?
         settings['buttons']['next'] = defaults['buttons']['next'];
-    else
-
+    end
+    if settings['contents-table'].nil?
+        settings['contents-table'] = defaults['contents-table'];
     end
 end
 
-temp['{{PAGES}}']   = cover+pageIndex+output;
+
 t_title  = settings['title'];
 t_footer  = settings['footer'];
 t_btnpr  = settings['buttons']['previous'];
 t_btnne  = settings['buttons']['next'];
+t_contents = settings['contents-table'];
 
 temp['{{TITLE}}']   = t_title
 temp['{{FOOTER}}']  = t_footer
 temp['{{BUTTONPREV}}']  = t_btnpr
 temp['{{BUTOTNNEXT}}']  = t_btnne
+
+
+cover       = '<section class="page cover">' + cover + '</section>'
+pageIndex   = '<section class="page index"><h2>'+t_contents+'</h2><table>' + pageIndex + '</table></section>';
+
+temp['{{PAGES}}']   = cover+pageIndex+output;
+
+
 #output content to given file, and puts some text to the terminal
 outfile = File.new readFolder+'/book-output/book/index.html',"w"
 outfile.puts(temp);
