@@ -9,7 +9,7 @@ html, body {
 
 .page {
   width: 600px;
-  min-height: 74%;
+  overflow: hidden;
   box-sizing: content-box;
   padding: 80px -webkit-calc(50% - 300px);
   padding: 80px -moz-calc(50% - 300px);
