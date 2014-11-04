@@ -5,7 +5,7 @@
 #  @date    November 2014
 #  @url     http://github.com/kvendrik/mdown-to-book/
 #
-## make shure you installed the red carpet gem && json
+## ~to start : ruby parse.ru mdown
 
 
 
@@ -54,20 +54,19 @@ Dir.glob(readFolder+'/*.md') do |rb_file|
     else
         contents = markdown.render(file.read);
         contents = contents.gsub(/\<img\ ?(\w{0,5})\=\"([^\"]+)\"\ ?(\w{0,5})\=\"([^\"]+)\"\ ?(\w{0,5})\=\"([^\"]+)\"\ ?\/?\>/, "
-
-<div class='enlarge'>
-    <img src='\\2' alt='\\4'>
-</div>
-<cite>\\6</cite>")
+                                    <div class='enlarge'>
+                                        <img src='\\2' alt='\\4'>
+                                    </div>
+                                    <cite>\\6</cite>")
         output = output + '<div class="page" id="page-'+i.to_s+'">' + contents + '</div>'
 
-        #compose the page index
+        # compose page index
         rb_file[readFolder] = '';
         rb_file['.md'] = '';
         result = rb_file.gsub(/\A[\d_\W]+|[\d_\W]+\Z/, '\1')
         pageIndex += '<tr><td><a href="?page='+i.to_s+'">'+result+'</a></td><td><a href="?page='+i.to_s+'">'+i.to_s+'</a></td></tr>'
     end
-    i = i + 1
+    i+=1
 end
 
 file = File.open(readFolder+'/book-output/book/index.html', "rb")
@@ -93,7 +92,6 @@ if !defaults
     end
 end
 
-
 t_title  = settings['title'];
 t_footer  = settings['footer'];
 t_btnpr  = settings['buttons']['previous'];
@@ -105,17 +103,12 @@ temp['{{FOOTER}}']  = t_footer
 temp['{{BUTTONPREV}}']  = t_btnpr
 temp['{{BUTOTNNEXT}}']  = t_btnne
 
-
 cover       = '<section class="page cover">' + cover + '</section>'
 pageIndex   = '<section class="page index"><h2>'+t_contents+'</h2><table>' + pageIndex + '</table></section>';
 
 temp['{{PAGES}}']   = cover+pageIndex+output;
 
-
-#output content to given file, and puts some text to the terminal
 outfile = File.new readFolder+'/book-output/book/index.html',"w"
 outfile.puts(temp);
 outfile.close;
 puts 'File written to ' + readFolder + '/book-output/book';
-
-

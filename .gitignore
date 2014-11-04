@@ -1,5 +1,6 @@
 .DS_Store
 .sass-cache
 node_modules/
+mdown/book-output
 
 mdown/template/book/css/main.css.map
