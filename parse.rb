@@ -108,7 +108,14 @@ page_index   = '<section class="page index"><h2>'+t_contents+'</h2><table>' + pa
 
 temp['{{PAGES}}']   = cover+page_index+output
 
+<<<<<<< HEAD:parse.rb
 outfile = File.new read_folder+'/book-output/book/index.html',"w"
 outfile.puts(temp)
 outfile.close
 puts 'File written to ' + read_folder + '/book-output/book'
+=======
+outfile = File.new readFolder+'/book-output/book/index.html',"w"
+outfile.puts(temp);
+outfile.close;
+puts 'File written to ' + readFolder + '/book-output/book';
+>>>>>>> FETCH_HEAD:parse.rb
