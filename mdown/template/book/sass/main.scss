@@ -11,9 +11,14 @@ html,body {
 
 .page {
   width: 600px;
-  min-height: 74%;
+  min-height: -webkit-calc(100% - 40px);
+  min-height: -moz-calc(100% - 40px);
+  min-height: calc(100% - 40px);
+  overflow: hidden;
 
   box-sizing: content-box;
+  padding: 80px -webkit-calc(50% - 300px);
+  padding: 80px -moz-calc(50% - 300px);
   padding: 80px calc(50% - 300px);
   padding-bottom: 0;
 

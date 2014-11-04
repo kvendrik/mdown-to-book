@@ -130,6 +130,8 @@ ul,ol {
 	overflow: hidden;
 
 	box-sizing: content-box;
+	padding: 0 -webkit-calc(50% - 300px);
+	padding: 0 -moz-calc(50% - 300px);
 	padding: 0 calc(50% - 300px);
 	margin: $margin-l 0 $margin-m 0;
 
