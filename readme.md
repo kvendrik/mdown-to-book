@@ -8,7 +8,7 @@ A command line tool that parses a folder of markdown files into a digital book
 
 ## Usage
 
-### Getting started
+### Simple usage
 1. Clone this repository and `cd` into it `git clone http://github.com/kvendrik/mdown-to-book.git && cd mdown-to-book`
 2. Install the dependencies: `sudo gem install redcarpet json`
 3. Make sure the current [file order](#file-order) of your markdown files represents the structure for the book.
