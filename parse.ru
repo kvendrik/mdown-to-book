@@ -27,7 +27,11 @@ pageIndex   = '';
 i           = 0;
 
 # iniate the template to copy
-FileUtils.cp_r(Dir.glob('template'), readFolder)
+directory = readFolder+'/book-output';
+FileUtils.mkdir_p(directory);
+
+
+FileUtils.cp_r(Dir.glob('template/*'), readFolder+'/book-output')
 s = File.open(readFolder+'/book-settings.json', "rb");
 settings = JSON.parse(s.read);
 
@@ -47,7 +51,7 @@ Dir.glob(readFolder+'/*.md') do |rb_file|
     i = i + 1
 end
 
-file = File.open(readFolder+'/template/book/index.html', "rb")
+file = File.open(readFolder+'/book-output/book/index.html', "rb")
 temp = file.read
 
 cover       = '<section class="page cover">' + cover + '</section>'
@@ -60,9 +64,9 @@ temp['{{BUTTONPREV}}']  = settings['buttons']['previous'];
 temp['{{BUTOTNNEXT}}']  = settings['buttons']['next'];
 
 #output content to given file, and puts some text to the terminal
-outfile = File.new readFolder+'/template/book/index.html',"w"
+outfile = File.new readFolder+'/book-output/book/index.html',"w"
 outfile.puts(temp);
 outfile.close;
-puts 'File written to ' + readFolder + '/book';
+puts 'File written to ' + readFolder + '/book-output/book';
 
 
