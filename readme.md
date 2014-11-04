@@ -3,10 +3,19 @@ Markdown to book
 
 Requires [RedCarpet](https://github.com/vmg/redcarpet)
 
+    `sudo gem install redcarpet`
+
+Requires Node js
+
+Requires :[grunt-cli](http://gruntjs.com/getting-started)
 ## Starting off
- - include all your markdown files into the mdown folder.
+ - include all your markdown files into a folder with the right names {read [File structure](#filestructure)}.
  - run `ruby parse.ru [folder to read] [file to output]` from ternminal*.
- - files will be saved in output.html
+ - files will be saved in inside your outpot file.
+
+ eg:
+
+ `ruby parse.ru mdown outputs/output.html`
 
 ## Usage
 
