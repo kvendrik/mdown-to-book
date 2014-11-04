@@ -11,6 +11,8 @@ html, body {
   width: 600px;
   min-height: 74%;
   box-sizing: content-box;
+  padding: 80px -webkit-calc(50% - 300px);
+  padding: 80px -moz-calc(50% - 300px);
   padding: 80px calc(50% - 300px);
   padding-bottom: 0;
   display: none; }
@@ -92,6 +94,8 @@ ul, ol {
   color: #a8a8a8;
   overflow: hidden;
   box-sizing: content-box;
+  padding: 0 -webkit-calc(50% - 300px);
+  padding: 0 -moz-calc(50% - 300px);
   padding: 0 calc(50% - 300px);
   margin: 40px 0 25px 0; }
   .footer p {
