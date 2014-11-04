@@ -2,12 +2,16 @@ Markdown to book
 =================
 A command line tool that parses a folder of markdown files into a digital book
 
+## Dependencies
+* [Redcarpet](https://github.com/vmg/redcarpet)
+* [JSON](http://www.ruby-doc.org/stdlib-2.0/libdoc/json/rdoc/JSON.html)
+
 ## Usage
 
-### Simple usage
+### Getting started
 1. Clone this repository and `cd` into it `git clone http://github.com/kvendrik/mdown-to-book.git && cd mdown-to-book`
 2. Install the dependencies: `sudo gem install redcarpet json`
-3. Make sure the current [file structure](#file-structure) of your markdown files represents the structure for the book.
+3. Make sure the current [file order](#file-order) of your markdown files represents the structure for the book.
 4. *(Optional) Create a [`book-settings.json`](#book-settingsjson) file in the directory with your markdown files.*
 5. Run `ruby parse.rb <path to your markdown files>`
 6. You can find the book in `<path to your markdown files>/book-output/book/`
@@ -18,7 +22,7 @@ A command line tool that parses a folder of markdown files into a digital book
 3. Run `grunt serve` (make sure you have the [grunt-cli](http://gruntjs.com/getting-started) installed)
 4. A new browser tab will open. You can now start modifying the theme while Grunt takes care of the rest. (pre-processing SASS, merging JS files, etc.)
 
-### File structure
+### File order
 Each file will be parsed to a new page in your book and will be considered a chapter. The filename will be used as the name for that chapter. To create the desired order you prepend your filenames with numbers e.g. `1. Chapter 1`. The first file in the folder will be used as cover page. We automatically generate a table of contents based on the chapters.
 
 ### book-settings.json
