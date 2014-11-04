@@ -1,13 +1,11 @@
 ## Markdown to book, kvendrik && Matti van de Weem
 #
 #  @project Markdown to book
-#  @author  Matti van de Weem
+#  @author  Matti van de Weem<mvdweem@gmail.com>
 #  @date    November 2014
 #  @url     http://github.com/kvendrik/mdown-to-book/
 #
 ## ~to start : ruby parse.rb mdown
-
-
 
 #dependancies
 require 'rubygems'
