@@ -132,8 +132,8 @@ private
                 #remove extention
                 curr_file_path['.md'] = ''
 
-                #remove prepended file number (e.g. 1_)
-                result = curr_file_path.gsub(/\A[\d_\W]+|[\d_\W]+\Z/, '')
+                #remove prepended file number (e.g. 1.)
+                result = curr_file_path.gsub(/\A[\d\.\W]+|[\d\.\W]+\Z/, '')
 
                 #store page index html
                 html_parts[:index] += '<tr><td><a href="?page='+curr_file_idx.to_s+'">'+result+'</a></td><td><a href="?page='+curr_file_idx.to_s+'">'+curr_file_idx.to_s+'</a></td></tr>'
