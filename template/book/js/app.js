@@ -110,7 +110,7 @@ if (/(MSIE [7-9]\.|Opera.*Version\/(10\.[5-9]|(11|12)\.)|Chrome\/([1-9]|10)\.|Ve
         var nextPageIdx = pages[currPageIdx+1] !== undefined ? currPageIdx+1 : 0;
 
         switchPage(currPageIdx, nextPageIdx);
-        history.pushState([(nextPageIdx+1), 0], 'Page: '+(nextPageIdx+1), '?page='+(nextPageIdx+1));
+        if(history.pushState) history.pushState([(nextPageIdx+1), 0], 'Page: '+(nextPageIdx+1), '?page='+(nextPageIdx+1));
 
         return nextPageIdx;
       },
@@ -119,7 +119,7 @@ if (/(MSIE [7-9]\.|Opera.*Version\/(10\.[5-9]|(11|12)\.)|Chrome\/([1-9]|10)\.|Ve
         var prevPageIdx = pages[currPageIdx-1] !== undefined ? currPageIdx-1 : pages.length-1;
 
         switchPage(currPageIdx, prevPageIdx);
-        history.pushState([(prevPageIdx+1), 0], 'Page: '+(prevPageIdx+1), '?page='+(prevPageIdx+1));
+        if(history.pushState) history.pushState([(prevPageIdx+1), 0], 'Page: '+(prevPageIdx+1), '?page='+(prevPageIdx+1));
 
         return prevPageIdx;
       },
