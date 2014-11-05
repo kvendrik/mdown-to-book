@@ -1,6 +1,6 @@
 .cover {
     margin-top: 200px;
-    min-height: 52%;
+    min-height: 57%;
 }
 
 .index {
@@ -11,6 +11,10 @@
     table {
         width: 100%;
         display: table;
+
+        &:before {
+            display: none;
+        }
 
         th,td {
             padding: 0;

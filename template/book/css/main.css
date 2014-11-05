@@ -9,7 +9,7 @@ html, body {
 
 .page {
   width: 600px;
-  margin: 80px auto;
+  margin: 80px auto 0 auto;
   display: none; }
   .page.visible {
     display: block; }
@@ -143,13 +143,15 @@ table {
 
 .cover {
   margin-top: 200px;
-  min-height: 52%; }
+  min-height: 57%; }
 
 .index:before {
   display: none; }
 .index table {
   width: 100%;
   display: table; }
+  .index table:before {
+    display: none; }
   .index table th, .index table td {
     padding: 0;
     border: none; }
