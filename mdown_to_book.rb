@@ -103,8 +103,10 @@ private
         curr_file_idx = 1
         md_parser = Redcarpet::Markdown.new(Redcarpet::Render::HTML, autolink: true, tables: true)
 
+        md_paths =  Dir.glob(@md_dir_path+'/*.md').sort_by {|filename| filename.match(/(\d+)\_.+/)[1].to_i}
+
         #get and loop md files, parse and store their HTML contents
-        Dir.glob(@md_dir_path+'/*.md') do |curr_file_path|
+        md_paths.each do |curr_file_path|
 
             # log current file
             puts 'Parsing '+curr_file_path+'...'
