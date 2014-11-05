@@ -18,7 +18,7 @@ require_relative 'mdown_to_book.rb'
 #Check the folder to obtain .md files from
 read_folder  = ARGV[0]
 if !read_folder
-  raise ''
+  raise 'please enter the path to your markdown files'
 end
 
 options = {}
