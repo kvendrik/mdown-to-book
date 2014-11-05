@@ -42,7 +42,7 @@ body {
 	border-top: $border-style $border-width $accent;
 }
 
-p,img,ul,ol,img {
+p,img,ul,ol,table {
 	margin-bottom: $margin-m;
 }
 
@@ -101,6 +101,29 @@ ul,ol {
 	}
 }
 
+table {
+	width: 100%;
+	display: block;
+	border-collapse: collapse;
+	overflow-x: auto;
+
+	&:before {
+		content: 'Scroll \2192';
+		font-size: $size-s;
+		color: $grey;
+		float: right;
+	}
+
+	td,th {
+		padding: $padding-s;
+		border: $border-style $border-width $grey-light;
+	}
+
+	th {
+		text-align: left;
+	}
+}
+
 .navigation {
 	position: fixed;
 	bottom: $margin-m;
@@ -129,11 +152,7 @@ ul,ol {
 	color: $grey;
 	overflow: hidden;
 
-	box-sizing: content-box;
-	padding: 0 -webkit-calc(50% - 300px);
-	padding: 0 -moz-calc(50% - 300px);
-	padding: 0 calc(50% - 300px);
-	margin: $margin-l 0 $margin-m 0;
+	margin: $margin-l auto $margin-m auto;
 
 	p {
 		float: left;

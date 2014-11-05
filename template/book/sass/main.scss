@@ -11,14 +11,9 @@ html,body {
 
 .page {
   width: 600px;
-  overflow: hidden;
+  //overflow: hidden;
 
-  box-sizing: content-box;
-  padding: 80px -webkit-calc(50% - 300px);
-  padding: 80px -moz-calc(50% - 300px);
-  padding: 80px calc(50% - 300px);
-  padding-bottom: 0;
-
+  margin: 80px auto;
   display: none;
 
   &.visible {

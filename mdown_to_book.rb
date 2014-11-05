@@ -84,7 +84,7 @@ private
         file_contents['{{TITLE}}'] = settings['title']
         file_contents['{{FOOTER}}'] = settings['footer']
         file_contents['{{BUTTONPREV}}'] = settings['buttons']['previous']
-        file_contents['{{BUTOTNNEXT}}'] = settings['buttons']['next']
+        file_contents['{{BUTTONNEXT}}'] = settings['buttons']['next']
 
         cover = '<section class="page cover">'+html_parts[:cover]+'</section>'
         page_index = '<section class="page index"><h2>'+settings['contents-table']+'</h2><table>'+html_parts[:index]+'</table></section>'

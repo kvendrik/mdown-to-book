@@ -9,12 +9,7 @@ html, body {
 
 .page {
   width: 600px;
-  overflow: hidden;
-  box-sizing: content-box;
-  padding: 80px -webkit-calc(50% - 300px);
-  padding: 80px -moz-calc(50% - 300px);
-  padding: 80px calc(50% - 300px);
-  padding-bottom: 0;
+  margin: 80px auto;
   display: none; }
   .page.visible {
     display: block; }
@@ -26,7 +21,7 @@ body {
   line-height: 1.5em;
   border-top: solid 2px #2a69aa; }
 
-p, img, ul, ol, img {
+p, img, ul, ol, table {
   margin-bottom: 25px; }
 
 a {
@@ -72,6 +67,22 @@ ul, ol {
     margin-bottom: 15px;
     font-size: 0.9em; }
 
+table {
+  width: 100%;
+  display: block;
+  border-collapse: collapse;
+  overflow-x: auto; }
+  table:before {
+    content: 'Scroll \2192';
+    font-size: 0.9em;
+    color: #a8a8a8;
+    float: right; }
+  table td, table th {
+    padding: 15px 20px;
+    border: solid 2px #e8e8e8; }
+  table th {
+    text-align: left; }
+
 .navigation {
   position: fixed;
   bottom: 25px;
@@ -93,11 +104,7 @@ ul, ol {
   font-size: 0.8em;
   color: #a8a8a8;
   overflow: hidden;
-  box-sizing: content-box;
-  padding: 0 -webkit-calc(50% - 300px);
-  padding: 0 -moz-calc(50% - 300px);
-  padding: 0 calc(50% - 300px);
-  margin: 40px 0 25px 0; }
+  margin: 40px auto 25px auto; }
   .footer p {
     float: left;
     margin: 0; }
@@ -135,11 +142,17 @@ ul, ol {
     margin: 0; }
 
 .cover {
-  padding-top: 240px;
+  margin-top: 200px;
   min-height: 52%; }
 
+.index:before {
+  display: none; }
 .index table {
-  width: 100%; }
+  width: 100%;
+  display: table; }
+  .index table th, .index table td {
+    padding: 0;
+    border: none; }
   .index table tr td {
     padding-bottom: 8px; }
     .index table tr td:last-child {
@@ -154,10 +167,10 @@ ul, ol {
     padding-left: 5%; }
 
   .page {
-    padding-top: 40px; }
+    margin-top: 40px; }
 
   .cover {
-    padding-top: 140px; }
+    margin-top: 140px; }
 
   .navigation {
     bottom: 0;

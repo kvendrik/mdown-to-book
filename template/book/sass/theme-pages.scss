@@ -1,11 +1,21 @@
 .cover {
-    padding-top: 240px;
+    margin-top: 200px;
     min-height: 52%;
 }
 
 .index {
+    &:before {
+        display: none;
+    }
+
     table {
         width: 100%;
+        display: table;
+
+        th,td {
+            padding: 0;
+            border: none;
+        }
 
         tr {
             td {
