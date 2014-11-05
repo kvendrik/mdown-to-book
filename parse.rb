@@ -26,4 +26,4 @@ OptionParser.new do |opts|
 	opts.banner = "Usage: parse.rb [options] [path to markdown files]"
 end.parse!
 
-MdownToBook.new(ARGV[0])
+MdownToBook.new(read_folder)
