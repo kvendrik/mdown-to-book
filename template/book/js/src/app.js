@@ -15,6 +15,8 @@
          B(pages[ currPageIdx ]).removeClass('visible');
          B(pages[ newPageIdx ]).addClass('visible');
 
+         window.scrollTo(0, 0);
+
          //update footer indicators
          currentPageEl.innerText = newPageIdx+1;
          progressBarEl.style.width = 100/pages.length*(newPageIdx+1)+'%';

@@ -99,6 +99,8 @@ if (/(MSIE [7-9]\.|Opera.*Version\/(10\.[5-9]|(11|12)\.)|Chrome\/([1-9]|10)\.|Ve
          B(pages[ currPageIdx ]).removeClass('visible');
          B(pages[ newPageIdx ]).addClass('visible');
 
+         window.scrollTo(0, 0);
+
          //update footer indicators
          currentPageEl.innerText = newPageIdx+1;
          progressBarEl.style.width = 100/pages.length*(newPageIdx+1)+'%';
