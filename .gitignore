@@ -2,5 +2,6 @@
 .sass-cache
 node_modules/
 mdown/book-output
+test/book-output
 
 mdown/template/book/css/main.css.map

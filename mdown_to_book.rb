@@ -100,7 +100,7 @@ private
             :index => ''
         }
 
-        curr_file_idx = 0
+        curr_file_idx = 1
         md_parser = Redcarpet::Markdown.new(Redcarpet::Render::HTML, autolink: true, tables: true)
 
         #get and loop md files, parse and store their HTML contents
@@ -113,9 +113,11 @@ private
             file = File.open(curr_file_path, "rb")
 
             #if first file
-            if curr_file_idx == 0
+            if curr_file_idx == 1
                 #parse md and store as cover
                 html_parts[:cover] = md_parser.render(file.read)
+                # increase the current file index to match the index page
+                curr_file_idx += 1
             else
                 #parse markdown
                 contents = md_parser.render(file.read)

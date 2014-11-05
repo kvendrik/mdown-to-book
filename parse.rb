@@ -17,6 +17,9 @@ require_relative 'mdown_to_book.rb'
 
 #Check the folder to obtain .md files from
 read_folder  = ARGV[0]
+if !read_folder
+  raise ''
+end
 
 options = {}
 OptionParser.new do |opts|
