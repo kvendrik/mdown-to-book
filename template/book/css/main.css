@@ -141,8 +141,8 @@ table {
     margin: 0; }
 
 .cover {
-  margin-top: 200px;
-  min-height: 57%; }
+  margin-top: 150px;
+  margin-bottom: 190px; }
 
 .index:before {
   display: none; }
