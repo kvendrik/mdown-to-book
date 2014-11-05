@@ -63,9 +63,8 @@ ul, ol {
     margin-bottom: 8px; }
     ul li img, ol li img {
       margin-bottom: 0; }
-  ul > ul, ul ol, ol > ul, ol ol {
-    margin-bottom: 15px;
-    font-size: 0.9em; }
+    ul li > ul, ul li ol, ol li > ul, ol li ol {
+      margin-bottom: 15px; }
 
 table {
   width: 100%;

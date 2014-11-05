@@ -93,11 +93,10 @@ ul,ol {
 		img {
 			margin-bottom: 0;
 		}
-	}
 
-	>ul,ol {
-		margin-bottom: $margin-s;
-		font-size: $size-s;
+		>ul,ol {
+			margin-bottom: $margin-s;
+		}
 	}
 }
 
