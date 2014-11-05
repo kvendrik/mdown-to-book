@@ -36,4 +36,4 @@ The `book-settings.json` file accepts the options below. In case the `book-setti
 |buttons|Object|Accepts a `next` and a `previous` option that each take a string to use as text on the navigation buttons|
 
 ### Images
-In your markdown you can reference images by using `img/<image filename>`. Then after you parsed your book you can place the images in `<path to your markdown files>/book-output/book/img/`
+In your markdown you can use  `img/<image filename>` as the `src` for your images. Then after you parsed your book you can manually place the images in `<path to your markdown files>/book-output/book/img/`
