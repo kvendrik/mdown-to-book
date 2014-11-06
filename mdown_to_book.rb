@@ -42,17 +42,15 @@ private
             defaults_string = File.open('default-settings.json', "rb")
             defaults = JSON.parse(defaults_string.read)
 
-            #replace defaults with defined user options
-            if settings['title'].nil?
-                    settings['title'] = defaults['title']
-            end
-            if settings['footer'].nil?
-                    settings['footer'] = defaults['footer']
-            end
-            if settings['contents-table'].nil?
-                    settings['contents-table'] = defaults['contents-table']
-            end
+			# automate settings checking for single depth parameters
+			setting_list = ['title','footer','contents-table']
+			setting_list.each do |check_setting|
+				if settings[check_setting].nil?
+                    settings[check_setting] = defaults[check_setting]
+            	end
+			end
 
+			# buttons are multi dimensional arrays, this will be parsed loose
             if settings['buttons']['previous'].nil?
                     settings['buttons']['previous'] = defaults['buttons']['previous']
             end

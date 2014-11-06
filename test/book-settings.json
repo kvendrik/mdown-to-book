@@ -1,9 +1,9 @@
 {
     "title": "heej :)",
-    "contents-table": "..Inhoud",
-    "footer": "A book by <a href='#'>Matti</a>",
+    "contents-table": "Idex page",
+    "footer": "A book by <a href='#swek'>Matti van de Weem</a>",
     "buttons": {
-        "next": "volgende",
-        "previous": "vorige :D"
+        "next": "-->",
+        "previous": "<--"
     }
 }
