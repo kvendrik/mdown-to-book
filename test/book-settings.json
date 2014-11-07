@@ -1,7 +1,6 @@
 {
-    "title": "heej :)",
-    "contents-table": "Idex page",
-    "footer": "A book by <a href='#swek'>Matti van de Weem</a>",
+    "title": "Markdown to a book",
+    "contents-table": "The page overview",
     "buttons": {
         "next": "-->",
         "previous": "<--"

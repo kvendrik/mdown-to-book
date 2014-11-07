@@ -1,1 +1,0 @@
-![mahimage](http://placecage.com/200/200 "Cage!")

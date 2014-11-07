@@ -1,4 +1,4 @@
-painga 2, TABLES SON!
+![mahimage](http://placecage.com/200/200 "Cage!")
 
 |Activiteiten|Tijdsplanning|Kwaliteitscriteria|Eindproducten|Kosten|Middelen|
 | :--------- | :---------- | :--------------- |:----------- |:----------- |:----------- |
