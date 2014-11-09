@@ -1,3 +1,5 @@
+#!/usr/bin/env ruby
+
 ## Markdown to book, kvendrik && Matti van de Weem
 #
 #  @project Markdown to book

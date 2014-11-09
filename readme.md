@@ -13,7 +13,7 @@ A command line tool that parses a folder of markdown files into a digital book
 2. Install the dependencies: `sudo gem install redcarpet json`
 3. Make sure the current [file order](#file-order) of your markdown files represents the structure for the book.
 4. *(Optional) Create a [`book-settings.json`](#book-settingsjson) file in the directory with your markdown files.*
-5. Run `ruby parse.rb <path to your markdown files>`
+5. Run `./parse <path to your markdown files>`
 6. You can find the book in `<path to your markdown files>/book-output/book/`
 
 ### Customizing the theme
