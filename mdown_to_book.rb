@@ -101,7 +101,7 @@ private
         curr_file_idx = 1
         md_parser = Redcarpet::Markdown.new(Redcarpet::Render::HTML, autolink: true, tables: true)
 
-        md_paths =  Dir.glob(@md_dir_path+'/*.md').sort_by {|filename| filename.match(/(\d+)\_.+/)[1].to_i}
+        md_paths = Dir.glob(@md_dir_path+'/*.md').sort_by {|filename| filename.match(/(\d+(\.\d+)?)\_.+/)[1].to_f}
 
         #get and loop md files, parse and store their HTML contents
         md_paths.each do |curr_file_path|
@@ -134,11 +134,14 @@ private
                 #remove extention
                 curr_file_path['.md'] = ''
 
-                #remove prepended file number (e.g. 1.)
-                result = curr_file_path.match(/\d\_(.+)/)[1]
+                #get chapter number and name
+                result = curr_file_path.match(/(\d(\.\d)?)\_(.+)/)
+
+                #if is a subchapter
+                tr_class = result[2] ? ' class="sub-page"' : '';
 
                 #store page index html
-                html_parts[:index] += '<tr><td><a href="?page='+curr_file_idx.to_s+'">'+result+'</a></td><td><a href="?page='+curr_file_idx.to_s+'">'+curr_file_idx.to_s+'</a></td></tr>'
+                html_parts[:index] += '<tr'+tr_class+'><td><a href="?page='+curr_file_idx.to_s+'">'+result[3]+'</a></td><td><a href="?page='+curr_file_idx.to_s+'">'+curr_file_idx.to_s+'</a></td></tr>'
             end
 
             #update curr file idx

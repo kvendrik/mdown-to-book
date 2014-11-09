@@ -160,6 +160,11 @@ table {
       text-align: right; }
   .index table tr:last-child td {
     padding-bottom: 0; }
+  .index table tr.sub-page td {
+    padding-left: 25px; }
+    .index table tr.sub-page td:last-child {
+      padding-left: 0;
+      padding-right: 25px; }
 
 @media all and (max-width: 600px) {
   .page, .footer {

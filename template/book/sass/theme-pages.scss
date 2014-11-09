@@ -28,8 +28,18 @@
                     text-align: right;
                 }
             }
+
             &:last-child td {
                 padding-bottom: 0;
+            }
+
+            &.sub-page td {
+                padding-left: $margin-m;
+
+                &:last-child {
+                    padding-left: 0;
+                    padding-right: $margin-m;
+                }
             }
         }
     }
