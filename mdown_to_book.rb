@@ -141,7 +141,7 @@ private
                 tr_class = result[2] ? ' class="sub-page"' : '';
 
                 #store page index html
-                html_parts[:index] += '<tr'+tr_class+'><td><a href="?page='+curr_file_idx.to_s+'">'+result[3]+'</a></td><td><a href="?page='+curr_file_idx.to_s+'">'+curr_file_idx.to_s+'</a></td></tr>'
+                html_parts[:index] += '<tr'+tr_class+'><td><a href="?page='+curr_file_idx.to_s+'"><span class="page-idx">'+result[1]+'.</span>'+result[3]+'</a></td><td><a href="?page='+curr_file_idx.to_s+'">'+curr_file_idx.to_s+'</a></td></tr>'
             end
 
             #update curr file idx

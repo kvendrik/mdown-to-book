@@ -30,6 +30,9 @@ a {
 small {
   font-size: 0.9em; }
 
+b, strong {
+  font-family: "Museo-300"; }
+
 img {
   width: 100%;
   border: solid 2px #a8a8a8; }
@@ -155,16 +158,18 @@ table {
     padding: 0;
     border: none; }
   .index table tr td {
-    padding-bottom: 8px; }
+    padding-bottom: 8px;
+    font-family: "Museo-300"; }
     .index table tr td:last-child {
       text-align: right; }
+    .index table tr td .page-idx {
+      display: inline-block;
+      margin-right: 8px; }
   .index table tr:last-child td {
     padding-bottom: 0; }
   .index table tr.sub-page td {
+    font-family: "Museo-100";
     padding-left: 25px; }
-    .index table tr.sub-page td:last-child {
-      padding-left: 0;
-      padding-right: 25px; }
 
 @media all and (max-width: 600px) {
   .page, .footer {

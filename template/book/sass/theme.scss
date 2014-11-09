@@ -11,6 +11,8 @@ $body-family: "Museo-100";
 $body-weight: 100;
 $body-line-height: 1.5em;
 
+$bold-family: "Museo-300";
+
 $heading-weight: 100;
 $heading-line-height: 1.3em;
 
@@ -52,6 +54,10 @@ a {
 
 small {
 	font-size: $size-s;
+}
+
+b, strong {
+	font-family: $bold-family;
 }
 
 img {

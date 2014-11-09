@@ -24,8 +24,15 @@
         tr {
             td {
                 padding-bottom: $margin-xs;
+                font-family: $bold-family;
+
                 &:last-child {
                     text-align: right;
+                }
+
+                .page-idx {
+                    display: inline-block;
+                    margin-right: $margin-xs;
                 }
             }
 
@@ -34,12 +41,8 @@
             }
 
             &.sub-page td {
+                font-family: $body-family;
                 padding-left: $margin-m;
-
-                &:last-child {
-                    padding-left: 0;
-                    padding-right: $margin-m;
-                }
             }
         }
     }
